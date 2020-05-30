@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.formSpace {
+  position: relative;
+  z-index: 1;
+  background: #0555698f;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form-control {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f293;
+  width: 100%;
+  border: 1px solid #174428a1;
+  margin: 0 0 15px;
+  margin-top: 2ex;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form-control:hover {
+  background-color: #27262657;
+}
+
+.btn {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #16751a9a;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #27262691;
+}
