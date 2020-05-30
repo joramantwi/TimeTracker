@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="../style/todos.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/470f92539c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="../style/main.css" />
+    <script>
+      function openSlideMenu() {
+        document.getElementById("menu").style.width = "250px";
+        document.getElementById("content").style.marginLeft = "250px";
+      }
+      function closeSlideMenu() {
+        document.getElementById("menu").style.width = "0";
+        document.getElementById("content").style.marginLeft = "0";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <span class="slide">
+        <a href="#" onclick="openSlideMenu()">
+          <i class="fas fa-bars"></i>
+        </a>
+      </span>
+
+      <div id="menu" class="nav">
+        <a href="#" class="close" onclick="closeSlideMenu()">
+          <i class="fas fa-times"></i>
+        </a>
+        <a href="#">DashBoard</a>
+        <a href="#">Personal</a>
+        <a href="#">Work</a>
+        <a href="#">Nav 4</a>
+        <a href="#">Nav 5</a>
+      </div>
+    </div>
+
+    <div id="container">
+      <h1>Add Task <i class="fa fa-plus"></i></h1>
+
+      <form method="post" action="do_addtask.php">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="taskDescription"
+            placeholder="Enter Task"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="clientName"
+            placeholder="Client name"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="date"
+            class="form-control"
+            name="endDate"
+            placeholder="End Date"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <ul></ul>
+    </div>
+
+    <div id="container">
+      <h1>My TO-DO List <i class="fa fa-plus"></i></h1>
+      <?php include 'mysql_connect.php';?>
+
+      <?php
+
+        $sql = "SELECT id, clientName, taskDescription, endDate FROM tasks WHERE taskStatus = 'doing'";
+        $result = mysqli_query($conn, $sql); // First parameter is just return of "mysqli_connect()" function
+    
+        echo "<br>"; echo "
+      <table>
+        "; echo "
+        <tr>
+          <th>ID</th>
+          <th>Client</th>
+          <th>Description</th>
+          <th>Deadline</th>
+          <th>Start Timer</th>
+          <th>Complete Task</th>
+        </tr>
+        "; while ($row = mysqli_fetch_assoc($result)) { // Important line !!!
+        Check summary get row on array .. echo "
+        <tr>
+          "; foreach ($row as $field => $value) { // I you want you can right
+          this line like this: foreach($row as $value) { echo "
+          <td>" . $value . "</td>
+          "; // I just did not use "htmlspecialchars()" function. } echo("
+          <form>
+            "); echo "
+            <td><button onclick="timerPopup()" type="submit">Timer</button></td>
+            "; echo("
+          </form>
+          "); echo("
+          <form action="finish_task.php" method="POST">
+            "); echo "
+            <td>
+              <button type="submit" name="subButton" value=".$row['id'].">
+                Complete
+              </button>
+            </td>
+            "; echo("
+          </form>
+          "); } echo "
+        </tr>
+      </table>
+
+      "; ?>
+
+      <ul></ul>
+    </div>
+
+    <script type="text/javascript" src="todos.js"></script>
+    <script>
+      function timerPopup() {
+        myWindow = window.open("timer.html", "Timer", "width=400,height=100"); // Opens a new window
+      }
+    </script>
+  </body>
+</html>

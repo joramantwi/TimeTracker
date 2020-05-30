@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VA Hub</title>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" type="text/css" href="../style/dashboard.css">
+    <script>
+      function openSlideMenu() {
+        document.getElementById("menu").style.width = "250px";
+        document.getElementById("content").style.marginLeft = "250px";
+      }
+      function closeSlideMenu() {
+        document.getElementById("menu").style.width = "0";
+        document.getElementById("content").style.marginLeft = "0";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <span class="slide">
+        <a href="#" onclick="openSlideMenu()">
+          <i class="fas fa-bars"></i>
+        </a>
+      </span>
+
+      <div id="menu" class="nav">
+        <a href="#" class="close" onclick="closeSlideMenu()">
+          <i class="fas fa-times"></i>
+        </a>
+        <h2> Welcome, Username!</h2>
+        <a href="#">DashBoard</a>
+        <a href="./todos.html">Lists</a>
+        <a href="./menu.html">Work</a>
+        <a href="./menu.html">Personal</a>
+        <a href="./login.html">Nav 5</a>
+      </div>
+    </div>
+
+    <div id="WholePage">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span id="header"><h1>TO DO LIST Home Tasks</h1></span>
+    <div id="TaskList">
+    <frm id="frmChooseTask" name="frmChooseTask">
+    <br>TASKS<br>
+    <select name="cars" id="cars" size="4">
+      <option value="1">Fix Car</option>
+      <option value="2">Visit Granma</option>
+      <option value="3">Wash dishes</option>
+      <option value="4">Wash clothes</option>
+    </select>
+    <br>
+    <input type="Submit" value="Select Task">
+    </form>
+    </span>
+    <div id="CurrentTask">
+    <br><center>CURRENT TASK</center>
+    <br>&nbsp Task Name: <br>&nbsp <span style="color:blue">Fix Car</span>
+    <br>&nbsp Task Description:<br>&nbsp <span style="color:blue">To wash and dry the car</span>
+    <br>&nbsp Starting Date:<br>&nbsp <span style="color:blue">1/6/2020</span>
+    <br>&nbsp Deadline:<br>&nbsp <span style="color:blue">1/6/2020</span>
+    </div>
+    <div id="AddNewTask">
+    <form id="frmAddNewTask" name="frmAddNewTask">
+    <center>ADD NEW TASK</center>
+    <br>
+    Task Name:
+    <input type="text" id="NewTask">
+    <br>Description:
+    <textarea id="NewTaskDescr" cols="50" rows="4"></textarea>
+    <input type="Submit" Value="Save Task">
+    </div>
+    </form>
+    </div>
+  </body>
+</html>

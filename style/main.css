@@ -3,6 +3,7 @@
 body {
   font-family: "Alegreya Sans", sans-serif;
   overflow-x: hidden;
+  background-color: rgba(180, 189, 182, 0.703);
 }
 .nav {
   height: 100%;
@@ -16,6 +17,11 @@ body {
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.7s;
+}
+
+.nav h2 {
+  text-decoration: none;
+  color: #055569e3;
 }
 .nav a {
   display: block;
@@ -35,7 +41,7 @@ body {
   margin-left: 50px;
   font-size: 30px;
 }
-.slide a {
+.g a {
   color: #000;
   font-size: 36px;
 }
@@ -53,7 +59,5 @@ body {
 .header.fixed {
   width: 100%;
   position: fixed;
-  top: 20px;
-  right: 20px;
   height: 50px;
 }
